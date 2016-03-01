@@ -7,11 +7,11 @@ using namespace std;
 
 void main() 
 {
-	int r, a;
+	float r, a;
 
 	cout <<"Ingrese radio: ";
 	cin >> r;
-	a = (3.141516*(r^2));
+	a = (3.141516*(r*r));
 	cout <<"El area del circulo es: " << a;
 	getch();
 }
