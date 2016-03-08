@@ -8,15 +8,14 @@ void main()
 {
 	int a, b;
 	a = 18;
+
 	cout << "Ingrese edad: ";
 	cin >> b;
+
 	if ((b>=a)) 
-	{
 		cout << "La persona si puede votar";
-	}
-	if ((b<a)) 
-	{
+	else 
 		cout << "La persona no puede votar";
-	}
+
 	getch();
 }
