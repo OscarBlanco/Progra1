@@ -1,6 +1,3 @@
-// Menu de funciones.cpp : Defines the entry point for the console application.
-//
-
 #include "stdafx.h"
 #include <iostream>
 #include "conio.h"
@@ -25,7 +22,7 @@ void main()
 		cout<< "2.- Potencia de un numero"<<endl;
 		cout<< "3.- MCD de dos numeros"<<endl;
 		cout<< "0.- Salir"<<endl;
-		cout<<"Digite una opcion: "<<endl;
+		cout<<"Digite una opcion: ";
 		cin>>opcion;
 		switch (opcion)
 		{
@@ -57,10 +54,14 @@ void main()
 				cout<<"ingrese el segundo numero: ";
 				cin>>c;
 				f= MCD (p,c);
-				cout<<"El mcd de"<<p<<"y"<<c<<"es: "<<f<<endl;
+				cout<<"El mcd de "<<p<<" y "<<c<<" es: "<<f<<endl;
 				cout<<endl;
 				break;
-				
+			}
+		case 0:
+			{
+				cout<<"El programa se saldra";
+				break;
 			}
 		default:
 			{
