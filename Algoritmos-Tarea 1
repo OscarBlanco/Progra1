@@ -1,0 +1,91 @@
+#include <iostream>
+#include "conio.h"
+#include "stdlib.h"
+using namespace std;
+
+int dcontador (int a);
+int sumad (int a);
+
+void main()
+{
+	int a, op;
+
+	do{
+		cout<<"----------Menu----------"<<endl;
+		cout<<"1.- Contador de Digitos de un numero"<<endl;
+		cout<<"2.- Sumar todos los Digitos de un numero"<<endl;
+		cout<<"3.- Salir"<<endl;
+		cout<<endl;
+		cout<<"ingrese la opcion: ";
+		cin>>op;
+		switch(op)
+		{
+		case 1:
+			{
+				do
+				{
+					cout<<"Ingrese el numero: ";
+					cin>>a;
+					if (a<=0)
+					{
+						cout<<"El numero ingresado no es valido, por favor ingrese un numero natural (>0)"<<endl;
+					}
+				}while(a<=0);
+
+				cout<<"La cantidad de digitos del numero "<<a<<" es: "<< dcontador (a) <<endl;
+				break;
+			}
+		case 2:
+			{
+				do
+				{
+					cout<<"Ingrese el numero: ";
+					cin>>a;
+					if (a<=0)
+					{
+						cout<<"El numero ingresado no es valido, por favor ingrese un numero natural (>0)"<<endl;
+					}
+				}while(a<=0);
+
+				cout<<"La suma de digitos del numero "<< a <<" es: "<< sumad (a) <<endl;
+				break;
+			}
+		case 3:
+			{
+				cout<<"Salir"<<endl;
+				break;
+			}
+		default:
+			{
+				cout<<"Opcion invalida"<<endl;
+				break;
+			}
+		}
+	system("pause");
+	system("cls");
+	}while(op!=3);
+getch();
+}
+
+int dcontador (int a)
+{
+	int m=0;
+	while(a!=0)
+	{
+		a=a/10;
+		m++;
+	}
+	return m;
+}
+
+int sumad (int a)
+{
+	int r, sum=0;
+
+	do{
+		r=a%10;
+		a=a/10;
+		sum=sum + r;
+	}while(a>0);
+	return sum;
+}
