@@ -1,0 +1,193 @@
+#include <iostream>
+#include "conio.h"
+#include "stdlib.h"
+#include "math.h"
+
+using namespace std;
+
+int dcontador (int a);
+int sumad (int a);
+int invertirn (int a);
+int sumaprimo (int a);
+int juntarn (int a, int b);
+void main ()
+{
+	int a,op,r,b;
+
+	do{
+	cout<<"---------Menu--------"<<endl;
+	cout<<"1.-Contador de digitos de un numero"<<endl;
+	cout<<"2.-Sumar todos los digitos de un numero"<<endl;
+	cout<<"3.-Invertir un numero."<<endl;
+	cout<<"4.-Suma de los digitos primos de un numero"<<endl;
+	cout<<"5.-Juntar dos numeros."<<endl;
+	cout<<"6.-Salir."<<endl;
+	cout<<"ingrese la opcion"<<endl;
+	cin>>op;
+	
+		switch(op)
+		{
+		case 1:
+			  {
+				  do{
+					  cout<<"ingrese el numero: ";
+					  cin>>a;
+					  if(a<=0)
+					  {
+						  cout<<"El numero ingresado no es valido.";
+					  }
+				  }while(a<=0);
+
+				  cout<<"La cantidad de digitos del numero"<<a<<" es: "<< dcontador (a)<<endl;
+				  break;
+			  }
+		case 2:
+			  {
+				  do{
+					  cout<<"Ingrese un numero: ";
+					  cin>>a;
+					  if(a<=0)
+					  {
+						  cout<<"El numero ingresado no es valido.";
+					  }
+				  }while(a<=0);
+					cout<<"La suma de los digitos del numero"<<a<<" es: "<< sumad (a)<<endl;
+					break;
+			  }
+		case 3:
+			{
+				do{
+					  cout<<"Ingrese un numero: ";
+					  cin>>a;
+					  if(a<=0)
+					  {
+						  cout<<"El numero ingresado no es valido.";
+					  }
+				  }while(a<=0);
+				cout<<"El numero" <<a<< " invertido es: "<< invertirn (a)<<endl;
+				break;
+			}
+		case 4:
+			{
+				do{
+					  cout<<"Ingrese un numero: ";
+					  cin>>a;
+					  if(a<=0)
+					  {
+						  cout<<"El numero ingresado no es valido.";
+					  }
+				  }while(a<=0);
+				r=sumaprimo (a);
+				cout<<"La suma de los digitos primos de " <<a<< " es: "<<r<<endl;
+				break;
+			}
+		case 5:
+			{
+				do{
+					  cout<<"Ingrese un numero: ";
+					  cin>>a;
+					  if(a<=0)
+					  {
+						  cout<<"El numero ingresado no es valido.";
+					  }
+				}while(a<=0);
+				do{
+					  cout<<"Ingrese un numero: ";
+					  cin>>b;
+					  if(b<=0)
+					  {
+						  cout<<"El numero ingresado no es valido.";
+					  }
+					  cout<<"La suma de los dos numeros "<<a<<" y "<<b<<" es: "<< juntarn (a,b)<<endl;
+					  break;
+				}while(b<=0);
+			}
+
+		case 6:
+			  {
+				  cout<<"Salir"<<endl;
+				  break;
+			  }
+		default:
+			{
+				cout<<"Opcion invalida"<<endl;
+				break;
+			}
+		}
+	system("pause");
+	system("cls");
+	}while(op!=6);
+
+getch();
+}
+
+int dcontador (int a)
+{
+	int m=0;
+	while(a!=0)
+	{
+		a=a/10;
+		m++;
+	}
+	return m;
+}
+
+
+int sumad (int a)
+{
+	int r,sum=0;
+	do{
+		r=a%10;
+		a=a/10;
+		sum=sum+r;
+	}while(a>0);
+	return sum;
+}
+
+int invertirn (int a)
+{
+			
+	int r, s=0;
+	while(a>0)
+	{
+		r=a%10;
+		s=(s*10)+r;
+		a=a/10;
+	}
+	return s;
+}
+
+bool nprimo (int a)
+{
+	int i,s=0;
+	bool k=true;
+
+	for(i=2; i<a; i++)
+	{
+		if(a%i==0)
+		{
+			k=false;
+		}
+	}
+	return k;
+}
+
+int sumaprimo (int a)
+{
+	int r, s=0;
+	while(a>0)
+	{
+		r=a%10;
+		if(nprimo(a) == true)
+		{
+			s=s+r;
+		}
+		a=a/10;
+	}
+	return s;
+}
+
+int juntarn (int a, int b)
+{
+	return (a*powf(10, dcontador(b)) +b);
+}
