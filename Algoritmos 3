@@ -1,0 +1,57 @@
+#include <iostream>
+#include "conio.h"
+using namespace std;
+
+void mostrarImpares (int n);
+bool nprimo (int n);
+void mostrarprim (int n);
+int obtenernprimos (int n);
+void main()
+{
+	int nro;
+	cout<<"Cuantos numeros? : ";
+	cin>> nro;
+	mostrarprim (nro);
+	getch();
+}
+
+bool nprimo (int n)
+{
+	int i;
+	bool k=true;
+
+	for(i=2; i<n; i++)
+	{
+		if(n%i==0)
+		{
+			k=false;
+		}
+	}
+	return k;
+} 
+
+
+int obtenernprimos (int n)
+{
+
+	int c=0,p=0;
+
+	while(p<n)
+	{
+		c++;
+		if(nprimo(c)==true)
+		{
+			p++;
+		}
+	}
+	return (p);
+}
+
+
+void mostrarprim (int n)
+{
+	for(int i=1; i<n; i++)
+	{
+		cout<< obtenernprimos(i)<< "   ";
+	}
+}
