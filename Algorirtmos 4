@@ -1,0 +1,144 @@
+#include <iostream>
+#include "conio.h"
+#define MAX 100
+using namespace std;
+
+void cargarv (int a[], int n);
+void mostrar (int a[], int n);
+bool verifprimo(int n);
+void noprimo (int a[], int &n);
+int obtNprimo(int n);
+void cargarPatronPri (int a[], int n);
+
+void main()
+{
+	int n, a[MAX];
+
+	cout<<"Ingrese el tamaño del vector: ";
+	cin>>n;
+	cargarv(a,n);
+	cout<<endl;
+	mostrar(a,n);
+	noprimo(a,n);
+	cout<<endl;
+	mostrar(a,n);
+	cout<<endl;
+	mostrar(a,n);
+getch();
+}
+
+void cargarv (int a[], int n)
+{
+	for(int i=0; i<n; i++)
+	{
+		cout<<"a["<<i<<"]= ";
+		cin>>a[i];
+	}
+}
+void mostrar (int a[], int n)
+{
+	for(int i=0; i<n; i++)
+	{
+		cout<<"a["<<i<<"]= "<< a[i] <<endl;
+	}
+}
+bool verifprimo(int n)
+{
+	bool k=true;
+
+	for(int i=2; i<n; i++)
+	{
+		if(n%i==0)
+		{
+			k=false;
+		}
+	}
+	return k;
+}
+void noprimo (int a[], int &n)
+{
+	for(int i=0; i<n; i++)
+	{
+		if(verifprimo(a[i])==true)
+		{
+			for(int c=0; c<n; c++)
+			{
+				a[c]=a[c+1];
+			}
+			n--;
+			i--;
+		}
+	}
+}
+int obtNprimo(int n)
+{
+	int c=0, cp=0;
+	while(cp<n)
+	{
+		c++;
+		if(verifprimo(c)==true)
+		{
+			cp++;
+		}
+		return c;
+	}
+}
+
+void cargarPatronPri(int a[], int n)
+{
+	int k;
+	for(int i=0; i<n; i++)
+	{
+		a[i]=obtNprimo(i+1);
+	}
+}*/
+
+int obtNprimo(int n)
+{
+	int c=0, cp=0;
+	while(cp<n)
+	{
+		c++;
+		if(verifprimo(c)==true)
+		{
+			cp++;
+		}
+		return c;
+	}
+}
+void cargarPatronPri(int a[], int n)
+{
+	int k=0, iS=0; iB=0;
+	for(int i=0; i<n; i++)
+	{
+		if(k==0)
+		{
+
+			a[iS++]=obtNprimo(i+1);
+			k=1;
+		}
+		else
+		{
+			a[iB++]=obtNprimo(i+1);
+			k=0;
+		}
+	}
+}
+void mostrar (int a[], int n)
+{
+	for(int i=0; i<n; i++)
+	{
+		cout<<"a["<<i<<"]= "<< a[i] <<endl;
+	}
+}
+void main()
+{
+	int a[MAX],n;
+	
+	cout<<"Ingrese el tamaño del vector: ";
+	cin>>n;
+
+	cargarPatronPri(a,n);
+	mostrar(a,n);
+	getch();
+}
